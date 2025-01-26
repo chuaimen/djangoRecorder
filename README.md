@@ -16,3 +16,5 @@ lesson01
 >>>  py manage.py makemigrations
 >>>  py manage.py shell
 >>>  py manage.py createsuperuser
+
+termux add test
