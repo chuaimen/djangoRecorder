@@ -18,3 +18,4 @@ lesson01
 >>>  py manage.py createsuperuser
 
 termux add test
+termux add test22
