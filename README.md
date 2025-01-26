@@ -11,3 +11,8 @@ lesson01
 
 创建新的app
 >>>  py manage.py startapp FirstApp
+
+>>> py manage.py migrate 
+>>>  py manage.py makemigrations
+>>>  py manage.py shell
+>>>  py manage.py createsuperuser
