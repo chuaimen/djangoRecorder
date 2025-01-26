@@ -19,3 +19,4 @@ lesson01
 
 termux add test
 termux add test22
+termux 阿萨德 333
