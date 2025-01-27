@@ -6,6 +6,11 @@
 
 {% block content %}
     <section>
+        <img
+                class="bsanner"
+                src="{{ post.banner.url }}"
+                alt="{{ post.title }}"
+        />
           <h1>{{ post.client }}</h1>
           <p>{{ post.date }}</p>
           <p>{{ post.workduty }}</p>
