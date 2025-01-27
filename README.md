@@ -17,6 +17,6 @@ lesson01
 >>>  py manage.py shell
 >>>  py manage.py createsuperuser
 
-termux add test
+termux add testcd 
 termux add test22
 termux 阿萨德 333

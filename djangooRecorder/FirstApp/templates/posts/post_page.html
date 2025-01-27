@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ post.client }}
+{% endblock %}
+
+{% block content %}
+    <section>
+          <h1>{{ post.client }}</h1>
+          <p>{{ post.date }}</p>
+          <p>{{ post.workduty }}</p>
+
+    </section>
+{% endblock %}
