@@ -20,3 +20,4 @@ lesson01
 termux add testcd 
 termux add test22
 termux 阿萨德 333
+termux test4
