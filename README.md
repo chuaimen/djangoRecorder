@@ -28,3 +28,5 @@ termux test4
 termux 5555
 
 termux 66
+
+termux 777
