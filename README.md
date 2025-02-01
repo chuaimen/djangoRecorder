@@ -26,3 +26,5 @@ termux 阿萨德 333
 termux test4
 
 termux 5555
+
+termux 66
