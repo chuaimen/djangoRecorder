@@ -5,6 +5,34 @@ https://docs.djangoproject.com/zh-hans/5.1/intro/tutorial01/
 
         创建项目
             mkdir djangotutorial
-            ---创建文件夹
+                ---创建文件夹
             django-admin startproject mysite djangotutorial
-            ---自动生成django project
+                ---自动生成django project
+            python manage.py runserver
+                ---运行服务器
+            python manage.py startapp polls
+                ---创建 APP
+
+            创建polls/urls.py
+            主页配置路径 指向 polls
+
+    第二章
+        数据库配置
+            设置时间
+
+            python manage.py migrate
+            python manage.py makemigrations polls
+
+        迁移是非常强大的功能
+        它能让你在开发过程中持续的改变数据库结构而不需要重新删除和创建表
+        - 它专注于使数据库平滑升级而不会丢失数据。
+        改变模型需要这三步：
+            编辑 models.py 文件，改变模型。
+            运行 python manage.py makemigrations 为模型的改变生成迁移文件。
+            运行 python manage.py migrate 来应用数据库迁移。
+
+        python manage.py shell
+
+        python manage.py createsuperuser
+            ---创建一个管理员账号
+        因为 翻译 功能默认是开启的，如果你设置了 LANGUAGE_CODE，登录界面将显示你设置的语言（如果 Django 有相应的翻译）
