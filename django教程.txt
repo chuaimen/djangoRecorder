@@ -36,3 +36,5 @@ https://docs.djangoproject.com/zh-hans/5.1/intro/tutorial01/
         python manage.py createsuperuser
             ---创建一个管理员账号
         因为 翻译 功能默认是开启的，如果你设置了 LANGUAGE_CODE，登录界面将显示你设置的语言（如果 Django 有相应的翻译）
+
+        test
