@@ -40,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'FirstApp',
-    'polls.apps.PollsConfig'
+    'polls.apps.PollsConfig',
+    'django_cleanup.apps.CleanupConfig'
 ]
+#安装 pip install django-cleanup pillow
+# 清楚对应的文件 'django_cleanup.apps.CleanupConfig' 这个命令必须放在最后
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
