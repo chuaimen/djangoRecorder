@@ -34,19 +34,3 @@ def submit_view(request,pk):
         post.workduty = full_text
         post.save()
     return redirect('posts:list')
-
-
-
-
-
-'''
-def delete_item(request, item_id):
-    item = get_object_or_404(MyModel, id=item_id)
-
-    if request.method == 'POST':
-        item.delete()
-        return redirect('success_url_name')  # 删除后重定向
-
-    # 如果是GET请求，可以显示确认页面
-    return render(request, 'confirm_delete.html', {'item': item})
-'''
