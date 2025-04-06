@@ -5,7 +5,19 @@
 {% endblock %}
 
 {% block content %}
+        <style>
+            body{
+
+            .pre-line{
+                white-space:pre-line;
+            }
+
+            }
+
+        </style>
     <section>
+
+
         <img
                 class="bsanner"
                 src="{{ post.banner.url }}"
@@ -13,11 +25,9 @@
         />
           <h1>{{ post.client }}</h1>
           <p>{{ post.date }}</p>
-          <p>{{ post.workduty }}</p>
-          <p>{{ post.slug }}</p>
+          <p class="pre-line">{{ post.workduty }}</p>
 
-        <p>{{ post.id }}</p>
-        <p>{{ post.banner.url }}</p>
+
 
         <form method="post" action="{% url 'posts:submit_view' post.id %}">
         {% csrf_token %}

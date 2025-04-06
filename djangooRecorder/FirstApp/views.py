@@ -21,21 +21,7 @@ def post_page(request, slug):
 
 def delete_item(request, pk):
     print(pk)
-    print(os.getcwd())
     item = get_object_or_404(Post, id=pk)
-    pic_url = item.banner.url
-    print(type(os.getcwd()))
-    print(type(pic_url))
-    print("结合路径 ",os.path.join(os.getcwd(),pic_url))
-
-    if pic_url == '/media/fallback.png':
-
-        print('is /media/fallback.png')
-        pass
-    else:
-        #os.unlink(os.path.join(os.getcwd(),pic_url))  # 功能与 os.remove() 相同
-        print("文件删除成功")
-
     item.delete()
     return redirect('posts:list')
 
@@ -43,7 +29,10 @@ def submit_view(request,pk):
     print(pk)
     if request.method == "POST":
         text = request.POST.get('input_text')
-        print(text)
+        post = Post.objects.get(id=pk)
+        full_text = post.workduty + "\n" + text
+        post.workduty = full_text
+        post.save()
     return redirect('posts:list')
 
 
