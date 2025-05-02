@@ -5,7 +5,7 @@ from django.db import models
 class Post(models.Model):
     client = models.CharField(max_length=75)
     workduty = models.TextField()
-    slug = models.SlugField()
+    #slug = models.SlugField()
     date = models.DateTimeField(auto_now_add=True)
     banner = models.ImageField(default='fallback.png', blank=True)
 

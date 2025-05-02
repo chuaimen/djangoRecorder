@@ -20,7 +20,7 @@
         {% for post in posts%}
         <article class="post">
             <h2>
-                <a href="{% url 'posts:page' slug=post.slug%}">
+                <a href="{% url 'posts:page' pk=post.id%}">
                      {{ post.client }}
                 </a>
             </h2>
