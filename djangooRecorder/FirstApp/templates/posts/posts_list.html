@@ -24,6 +24,28 @@
                      {{ post.client }}
                 </a>
             </h2>
+
+
+            <style>
+            .small-image {
+               width: 150px;
+                height: auto;  /* 保持宽高比 */
+            }
+            .medium-image {
+                width: 300px;
+                height: auto;
+            }
+            .custom-size {
+                width: 100%;
+                max-width: 500px;
+            }
+</style>
+            <img
+
+                src="{{ post.banner.url }}"
+                alt="{{ post.title }}"
+                class="small-image"
+            />
             <p>{{ post.date }}</p>
             <p class="pre-line">{{ post.workduty }}</p>
         </article>
