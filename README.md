@@ -17,16 +17,5 @@ lesson01
 >>>  py manage.py shell
 >>>  py manage.py createsuperuser
 
-termux add testcd
- 
-termux add test22
-
-termux 阿萨德 333
-
-termux test4
-
-termux 5555
-
-termux 66
-
-termux 777
+超级管理员 chuaimen
+密     码 664566
