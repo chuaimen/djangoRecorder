@@ -27,6 +27,8 @@ urlpatterns = [
     path('posts/', include('FirstApp.urls')),
     path("polls/", include("polls.urls")),
     path('ChinaBank/', include('ChinaBank.urls')),
+    path('ShunFeng/', include('ShunFeng.urls')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

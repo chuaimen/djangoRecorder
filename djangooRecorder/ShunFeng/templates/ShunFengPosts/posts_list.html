@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Posts List
+{% endblock %}
+
+{% block content %}
+        <style>
+            body{
+
+            .pre-line{
+                white-space:pre-line;
+            }
+
+            }
+
+        </style>
+    <section>
+    <h1>中国银行</h1>
+        {% for post in posts%}
+        <article class="post">
+            <h2>
+ <!--                            ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
+                <a href="{% url 'ShunFengPosts:page' pk=post.id%}">
+                     {{ post.client }}
+                </a>
+            </h2>
+
+
+            <style>
+            .small-image {
+               width: 150px;
+                height: auto;  /* 保持宽高比 */
+            }
+            .medium-image {
+                width: 300px;
+                height: auto;
+            }
+            .custom-size {
+                width: 100%;
+                max-width: 500px;
+            }
+</style>
+            <img
+
+                src="{{ post.banner.url }}"
+                alt="{{ post.title }}"
+                class="small-image"
+            />
+            <p>{{ post.date }}</p>
+            <p class="pre-line">{{ post.workduty }}</p>
+        </article>
+        {% endfor %}
+    </section>
+{% endblock %}
