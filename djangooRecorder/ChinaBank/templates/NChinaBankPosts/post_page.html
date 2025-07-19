@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ post.client }}
+{% endblock %}
+
+{% block content %}
+        <style>
+            body{
+
+            .pre-line{
+                white-space:pre-line;
+            }
+
+            }
+
+        </style>
+    <section>
+
+
+        <img
+                class="bsanner"
+                src="{{ post.banner.url }}"
+                alt="{{ post.title }}"
+        />
+          <h1>{{ post.client }}</h1>
+          <p>{{ post.date }}</p>
+          <p class="pre-line">{{ post.workduty }}</p>
+
+
+
+        <form method="post" action="{% url 'NChinaBankPosts:submit_view' post.id %}">
+        {% csrf_token %}
+            <input type="text" name="input_text">
+            <button type="submit">提交</button>
+        </form>
+
+
+        <a href="{% url 'NChinaBankPosts:delete_item' post.id %}" class="btn btn-danger" onclick="return confirm('do??')"> X---X</a>
+
+
+
+    </section>
+{% endblock %}
+
+
