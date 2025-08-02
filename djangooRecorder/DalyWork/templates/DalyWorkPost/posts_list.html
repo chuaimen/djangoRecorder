@@ -16,11 +16,12 @@
 
         </style>
     <section>
-    <h2>Posts List</h2>
+    <h2> 日常工作 </h2>
         {% for post in posts%}
         <article class="post">
             <h2>
-                <a href="{% url 'posts:page' pk=post.id%}">
+ <!--                            ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
+                <a href="{% url 'DalyWorkPPP:page' pk=post.id%}">
                      {{ post.client }}
                 </a>
             </h2>

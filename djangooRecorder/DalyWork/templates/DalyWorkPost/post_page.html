@@ -28,15 +28,15 @@
           <p class="pre-line">{{ post.workduty }}</p>
 
 
-
-        <form method="post" action="{% url 'NChinaBankPosts:submit_view' post.id %}">
+<!--                                       ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
+        <form method="post" action="{% url 'DalyWorkPPP:submit_view' post.id %}">
         {% csrf_token %}
             <input type="text" name="input_text">
             <button type="submit">提交</button>
         </form>
 
-
-        <a href="{% url 'NChinaBankPosts:delete_item' post.id %}" class="btn btn-danger" onclick="return confirm('do??')"> X---X</a>
+<!--                    ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
+        <a href="{% url 'DalyWorkPPP:delete_item' post.id %}" class="btn btn-danger" onclick="return confirm('do??')"> X---X</a>
 
 
 
