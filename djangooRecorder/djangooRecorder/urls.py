@@ -28,7 +28,8 @@ urlpatterns = [
     path("polls/", include("polls.urls")),
     path('ChinaBank/', include('ChinaBank.urls')),
     path('ShunFeng/', include('ShunFeng.urls')),
-    path('DalyWork/', include('DalyWork.urls'))
+    path('DalyWork/', include('DalyWork.urls')),
+    path('ChangJiangE/', include('ChangJiangE.urls'))
 
 ]
 

@@ -16,14 +16,14 @@
 
         </style>
     <section>
-    <h2>中国银行</h2>
+    <p>中国银行</p>
         {% for post in posts%}
         <article class="post">
-            <h2>
+            <p>
                 <a href="{% url 'NChinaBankPosts:page' pk=post.id%}">
                      {{ post.client }}
                 </a>
-            </h2>
+            </p>
 
 
             <style>
@@ -46,7 +46,7 @@
                 alt="{{ post.title }}"
                 class="small-image"
             />
-            <p>{{ post.date }}</p>
+            <h2>{{ post.date }}</h2>
             <p class="pre-line">{{ post.workduty }}</p>
         </article>
         {% endfor %}

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
     'ChinaBank',
     'ShunFeng',
-    'DalyWork'
+    'DalyWork',
+    'ChangJiangE'
 ]
 #安装 pip install django-cleanup pillow
 # 清楚对应的文件 'django_cleanup.apps.CleanupConfig' 这个命令必须放在最后
