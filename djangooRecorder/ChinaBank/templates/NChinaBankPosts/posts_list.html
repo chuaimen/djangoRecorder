@@ -16,14 +16,14 @@
 
         </style>
     <section>
-    <p>中国银行</p>
+    <h3>中国银行</h3>
         {% for post in posts%}
         <article class="post">
-            <p>
+            <h3>
                 <a href="{% url 'NChinaBankPosts:page' pk=post.id%}">
                      {{ post.client }}
                 </a>
-            </p>
+            </h3>
 
 
             <style>

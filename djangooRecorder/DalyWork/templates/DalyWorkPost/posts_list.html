@@ -16,15 +16,15 @@
 
         </style>
     <section>
-    <h2> 日常工作 </h2>
+    <h3> 日常工作 </h3>
         {% for post in posts%}
         <article class="post">
-            <h2>
+            <h3>
  <!--                            ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
                 <a href="{% url 'DalyWorkPPP:page' pk=post.id%}">
                      {{ post.client }}
                 </a>
-            </h2>
+            </h3>
 
 
             <style>
@@ -47,7 +47,7 @@
                 alt="{{ post.title }}"
                 class="small-image"
             />
-            <p>{{ post.date }}</p>
+            <h2>{{ post.date }}</h2>
             <p class="pre-line">{{ post.workduty }}</p>
         </article>
         {% endfor %}
