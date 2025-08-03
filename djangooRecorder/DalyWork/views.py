@@ -23,7 +23,7 @@ def post_page(request, pk):
 
 def delete_item(request, pk):
     print(pk)
-    item = get_object_or_404(ShunFengPost, id=pk)
+    item = get_object_or_404(DalyWorkPost, id=pk)
     item.delete()
     #              ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     return redirect('DalyWorkPPP:list')
