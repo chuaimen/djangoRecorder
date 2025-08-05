@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect,HttpResponseRedirect
 # 改数据库名称
 from .models import DalyWorkPost
+from django.shortcuts import render
 
 # Create your views here.
 def post_list(request):
@@ -38,6 +39,28 @@ def submit_view(request,pk):
         post.save()
         #          ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     return redirect('DalyWorkPPP:list')
-from django.shortcuts import render
 
-# Create your views here.
+def cutInformation(request):
+    if request.method == "POST" and request.POST.get('input_text')!= '':
+
+        text = request.POST.get('input_text')
+
+        print("textttt-----")
+        print(text)
+        print(type(text))
+        #          ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        temp_posts = DalyWorkPost.objects.all().order_by('-date')
+        posts = []
+        print("type of posts", type(temp_posts))
+        for post in temp_posts:
+            if text in post.client:
+                posts.append(post)
+
+        print("_______",posts)
+    else:
+            #          ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        posts = DalyWorkPost.objects.all().order_by('-date')
+        print(posts)
+
+    #                                    ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 这个相当于 文件路径
+    return render(request, 'DalyWorkPost/posts_list.html', {'posts': posts})

@@ -16,7 +16,17 @@
 
         </style>
     <section>
+
+
     <h3> 日常工作 </h3>
+
+        <!--                            ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
+        <form method="post" action="{% url 'DalyWorkPPP:cutInformation_view' %}">
+        {% csrf_token %}
+            <input type="text" name="input_text"  style="height: 40px;" >
+            <button type="submit" style="height: 40px;" >提交</button>
+        </form>
+
         {% for post in posts%}
         <article class="post">
             <h3>
