@@ -2,7 +2,8 @@ from django.db import models
 
 
 # Create your models here.
-#修改 数据库名称
+#     修改 数据库名称
+#   ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓
 class DalyWorkPost(models.Model):
     client = models.CharField(max_length=75)
     workduty = models.TextField()
