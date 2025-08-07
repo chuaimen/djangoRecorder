@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML折叠功能实现</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .accordion {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            padding: 20px 25px;
+            background: #f8f8f8;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #f0f0f0;
+        }
+
+        .accordion-header.active {
+            background: #e3f2fd;
+        }
+
+        .accordion-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .accordion-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: #3498db;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .accordion-content.active {
+            padding: 25px;
+            max-height: 500px;
+        }
+
+        .content-inner {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+        }
+
+        .accordion-content.active .content-inner {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            padding: 20px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .accordion-title {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-layer-group"></i> HTML折叠功能实现</h1>
+            <p class="subtitle">使用纯HTML、CSS和JavaScript创建美观的可折叠区域</p>
+        </header>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">什么是折叠功能？</div>
+                    <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p>折叠功能（也称为手风琴效果）是一种常见的UI设计模式，允许用户通过点击标题来展开或折叠内容区域。这种设计可以有效地节省空间，同时保持内容的组织性和可访问性。</p>
+                        <p>折叠组件通常用于FAQ部分、设置面板、内容目录和其他需要分组显示信息的地方。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">实现原理</div>
+                    <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p>折叠功能的实现主要依靠CSS和JavaScript的配合：</p>
+                        <ul>
+                            <li><strong>HTML结构</strong>：每个折叠项包含一个标题（header）和一个内容区域（content）</li>
+                            <li><strong>CSS样式</strong>：内容区域默认隐藏（max-height:0），通过添加active类来显示内容</li>
+                            <li><strong>JavaScript</strong>：监听标题的点击事件，切换内容区域的显示状态</li>
+                        </ul>
+                        <p>关键CSS属性：</p>
+                        <pre>max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease;</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">响应式设计</div>
+                    <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p>本折叠组件完全支持响应式设计，可以在各种设备上完美展示：</p>
+                        <ul>
+                            <li>在桌面设备上：宽度自适应，最大宽度800px</li>
+                            <li>在平板设备上：内容区域适当调整内边距</li>
+                            <li>在手机设备上：标题字体适当缩小，功能卡片变为垂直排列</li>
+                        </ul>
+                        <p>通过使用CSS媒体查询，我们为不同屏幕尺寸设置了不同的样式规则：</p>
+                        <pre>@media (max-width: 600px) {
+  .accordion-title { font-size: 1.1rem; }
+  .features { flex-direction: column; }
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">最佳实践</div>
+                    <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p>设计折叠组件时，遵循以下最佳实践可以提升用户体验：</p>
+                        <ul>
+                            <li><strong>视觉反馈</strong>：使用图标（如下箭头）指示折叠状态</li>
+                            <li><strong>平滑动画</strong>：添加过渡效果使展开/折叠过程更自然</li>
+                            <li><strong>充足间距</strong>：确保标题和内容有足够的内部空间</li>
+                            <li><strong>清晰标识</strong>：使用颜色或背景区分活动状态</li>
+                            <li><strong>键盘可访问性</strong>：确保可以通过键盘操作折叠组件</li>
+                        </ul>
+                        <p>此外，在移动设备上，确保标题区域足够大以便于触摸操作。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="feature-title">响应式设计</div>
+                <div class="feature-desc">适配所有设备尺寸</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <div class="feature-title">平滑动画</div>
+                <div class="feature-desc">CSS过渡效果增强体验</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-code"></i></div>
+                <div class="feature-title">纯代码实现</div>
+                <div class="feature-desc">无外部依赖库</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                <div class="feature-title">可定制主题</div>
+                <div class="feature-desc">轻松修改颜色和样式</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>HTML折叠组件实现 | 使用纯HTML、CSS和JavaScript</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    // 切换当前项的激活状态
+                    this.classList.toggle('active');
+
+                    // 获取关联的内容区域
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('active');
+
+                    // 关闭其他展开的项
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            otherHeader.classList.remove('active');
+                            otherHeader.nextElementSibling.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
