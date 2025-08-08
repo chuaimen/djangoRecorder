@@ -98,6 +98,10 @@ def post_new(request):
 def resize_image(image_field, width=800, height=600):
     img = Image.open(image_field)
 
+    if img.mode == 'RGBA':
+        img = img.convert('RGB')
+
+
     img.thumbnail((width,height))
 
     output = BytesIO()
