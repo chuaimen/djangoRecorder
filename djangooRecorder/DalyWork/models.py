@@ -5,7 +5,7 @@ from django.db import models
 #     修改 数据库名称
 #   ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓
 class DalyWorkPost(models.Model):
-    client = models.CharField(max_length=75)
+    client = models.TextField()
     workduty = models.TextField()
     # slug = models.SlugField()
     date = models.DateTimeField(auto_now_add=True)

@@ -8,6 +8,10 @@ from django.shortcuts import get_object_or_404, redirect,HttpResponseRedirect
 from .models import DalyWorkPost
 from . import forms
 from django.shortcuts import render
+from imagekit.models import ProcessedImageField
+from io import BytesIO
+from PIL import Image
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 AppDataModel = DalyWorkPost
 PostListPage = 'DalyWorkPPP:list'
@@ -79,11 +83,31 @@ def post_new(request):
     if request.method =='POST':
         form = forms.CreateInFormation(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            getPhotoForm = form.save(commit=False)
+            if 'banner' in request.FILES:
+                getPhotoForm.banner = resize_image(request.FILES['banner'])
+            getPhotoForm.save()
+
             #          ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
         return redirect(PostListPage)
     else:
         form = forms.CreateInFormation()
             #          ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
         return redirect(PostListPage)
+
+def resize_image(image_field, width=800, height=600):
+    img = Image.open(image_field)
+
+    img.thumbnail((width,height))
+
+    output = BytesIO()
+    img.save(output, format='JPEG', quality=90)
+    output.seek(0)
+
+    return InMemoryUploadedFile(
+        output, 'banner', f"{image_field.name.split('.')[0]}.jpg",
+        'image/jpeg', output.getbuffer().nbytes, None
+    )
+
+
 

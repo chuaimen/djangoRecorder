@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'FirstApp',
     'polls.apps.PollsConfig',
     'django_cleanup.apps.CleanupConfig',
+    'imagekit',
     'ChinaBank',
     'ShunFeng',
     'DalyWork',
