@@ -95,7 +95,7 @@ def post_new(request):
             #          ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
         return redirect(PostListPage)
 
-def resize_image(image_field, width=1200, height=1000):
+def resize_image(image_field, width=1800, height=2000):
     img = Image.open(image_field)
 
     if img.mode == 'RGBA':
@@ -105,7 +105,7 @@ def resize_image(image_field, width=1200, height=1000):
     img.thumbnail((width,height))
 
     output = BytesIO()
-    img.save(output, format='JPEG', quality=95)
+    img.save(output, format='JPEG', quality=99)
     output.seek(0)
 
     return InMemoryUploadedFile(
