@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class ChinaBankPost(models.Model):
-    client = models.CharField(max_length=75)
+    client = models.TextField()
     workduty = models.TextField()
     #slug = models.SlugField()
     date = models.DateTimeField(auto_now_add=True)

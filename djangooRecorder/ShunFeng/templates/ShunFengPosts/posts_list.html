@@ -16,7 +16,58 @@
 
         </style>
     <section>
-    <h3> 顺丰</h3>
+
+
+        <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">顺丰</div>
+                    <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="content-inner">
+
+                            <!--                                 ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
+                        <form method="post" action="{% url 'ShunFengPosts:cutInformation_view' %}">
+                        {% csrf_token %}
+                            <input type="text" name="input_text"  style="height: 40px;" >
+                            <button type="submit" style="height: 40px;" >提交</button>
+                        </form>
+
+
+                    </div>
+                </div>
+        </div>
+
+
+        <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">新--信息</div>
+                    <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="content-inner">
+
+
+                        <!--                                                          ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
+                        <form class="from-with-validation" method="post" action="{% url 'ShunFengPosts:postNewInformation_view' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form }}
+
+                            <button class="form-submit" style="height: 40px;" >提交</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
         {% for post in posts%}
         <article class="post">
             <h3>
@@ -51,5 +102,31 @@
             <p class="pre-line">{{ post.workduty }}</p>
         </article>
         {% endfor %}
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    // 切换当前项的激活状态
+                    this.classList.toggle('active');
+
+                    // 获取关联的内容区域
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('active');
+
+                    // 关闭其他展开的项
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            otherHeader.classList.remove('active');
+                            otherHeader.nextElementSibling.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
     </section>
 {% endblock %}

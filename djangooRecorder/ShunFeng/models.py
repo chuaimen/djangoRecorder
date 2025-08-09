@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 #修改 数据库名称
 class ShunFengPost(models.Model):
-    client = models.CharField(max_length=75)
+    client = models.TextField()
     workduty = models.TextField()
     # slug = models.SlugField()
     date = models.DateTimeField(auto_now_add=True)

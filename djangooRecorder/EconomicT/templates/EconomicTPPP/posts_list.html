@@ -17,16 +17,18 @@
         </style>
     <section>
 
+
+
         <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="accordion-title">长江电力</div>
+                    <div class="accordion-title">经济类混思</div>
                     <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="accordion-content">
                     <div class="content-inner">
 
                             <!--                                 ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
-                        <form method="post" action="{% url 'ChangJiangEPPP:cutInformation_view' %}">
+                        <form method="post" action="{% url 'EconomicTPosts:cutInformation_view' %}">
                         {% csrf_token %}
                             <input type="text" name="input_text"  style="height: 40px;" >
                             <button type="submit" style="height: 40px;" >提交</button>
@@ -36,7 +38,6 @@
                     </div>
                 </div>
         </div>
-
 
 
         <div class="accordion-item">
@@ -49,7 +50,7 @@
 
 
                         <!--                                                          ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
-                        <form class="from-with-validation" method="post" action="{% url 'ChangJiangEPPP:postNewInformation_view' %}" enctype="multipart/form-data">
+                        <form class="from-with-validation" method="post" action="{% url 'EconomicTPosts:postNewInformation_view' %}" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form }}
 
@@ -65,8 +66,8 @@
         {% for post in posts%}
         <article class="post">
             <h3>
- <!--                            ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
-                <a href="{% url 'ChangJiangEPPP:page' pk=post.id%}">
+                <!--            ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                  -->
+                <a href="{% url 'EconomicTPosts:page' pk=post.id%}">
                      {{ post.client }}
                 </a>
             </h3>

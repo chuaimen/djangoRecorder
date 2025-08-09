@@ -17,6 +17,7 @@ AppDataModel = DalyWorkPost
 PostListPage = 'DalyWorkPPP:list'
 TemplateFileName = 'DalyWorkPost'
 
+
 # Create your views here.
 def post_list(request):
     #     ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓

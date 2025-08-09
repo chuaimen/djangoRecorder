@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
 
-#修改 app 的名称
-app_name = 'ShunFengPosts'
+
+app_name = 'EconomicTPosts'
 
 
 urlpatterns = [
