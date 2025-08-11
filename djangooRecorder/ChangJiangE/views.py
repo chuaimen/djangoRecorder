@@ -80,13 +80,25 @@ def cutInformation(request):
     #                    ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 这个相当于 文件路径
     return render(request, f'{TemplateFileName}/posts_list.html', {'posts': posts})
 
+
 def post_new(request):
     if request.method =='POST':
         form = forms.CreateInFormation(request.POST, request.FILES)
         if form.is_valid():
             getPhotoForm = form.save(commit=False)
-            if 'banner' in request.FILES:
-                getPhotoForm.banner = resize_image(request.FILES['banner'])
+            if 'AA' in request.FILES:
+                getPhotoForm.AA = resize_image(request.FILES['AA'])
+            if 'BB' in request.FILES:
+                getPhotoForm.BB = resize_image(request.FILES['BB'])
+            if 'CC' in request.FILES:
+                getPhotoForm.CC = resize_image(request.FILES['CC'])
+            if 'DD' in request.FILES:
+                getPhotoForm.DD = resize_image(request.FILES['DD'])
+            if 'EE' in request.FILES:
+                getPhotoForm.EE = resize_image(request.FILES['EE'])
+            if 'FF' in request.FILES:
+                getPhotoForm.FF = resize_image(request.FILES['FF'])
+
             getPhotoForm.save()
 
             #          ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
