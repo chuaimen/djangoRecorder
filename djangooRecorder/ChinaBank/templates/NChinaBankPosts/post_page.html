@@ -57,7 +57,7 @@
 
         <form method="post" action="{% url 'NChinaBankPosts:submit_view' post.id %}">
         {% csrf_token %}
-            <input type="text" name="input_text"  style="height: 40px;" >
+            <textarea name="input_text" rows="4" cols="50" placeholder="请输入消息"></textarea>
             <button type="submit" style="height: 40px;" >提交</button>
         </form>
 

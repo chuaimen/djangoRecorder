@@ -57,7 +57,7 @@
 <!--                                       ↓↓↓↓↓↓↓↓↓改↓↓↓↓↓↓↓                         -->
         <form method="post" action="{% url 'ShunFengPosts:submit_view' post.id %}">
         {% csrf_token %}
-            <input type="text" name="input_text">
+            <textarea name="input_text" rows="4" cols="50" placeholder="请输入消息"></textarea>
             <button type="submit">提交</button>
         </form>
 
