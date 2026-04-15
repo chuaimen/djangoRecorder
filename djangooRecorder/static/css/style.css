@@ -22,7 +22,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    margin: 0;
+    width: 80%;
+    margin: 0 auto;
     overflow-x: hidden; /* 防止水平滚动 */
 }
 
@@ -331,3 +332,10 @@ footer {
                 width: 100%;
                 max-width: 300px;
             }
+
+.container {
+    width: 80%;           /* 或固定宽度如 1200px */
+    max-width: 1200px;
+    margin: 0 auto;       /* 上下为0，左右自动（实现水平居中） */
+    padding: 0;           /* 确保没有内边距 */
+}
